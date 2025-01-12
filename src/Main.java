@@ -46,7 +46,9 @@ public class Main {
 
     }
 
+    //Algoritmo Insertion Sort
     public static void s1Exercicio1() {
+        // O(n²)
         Scanner scanner = new Scanner(System.in);
         int arraySize = scanner.nextInt();
         int[] array = new int[arraySize];
@@ -77,5 +79,51 @@ public class Main {
         System.out.println(arrayString);
     }
 
-    public static void s1Exercicio2(){}
+    public static int findMax(int[] array, int indiceUltimoNumero) {
+        //O(n)
+        if (indiceUltimoNumero == 0) {
+            return array[0];
+        }
+
+        int maior = findMax(array, indiceUltimoNumero - 1);
+
+        if(array[indiceUltimoNumero] > maior) {
+            return array[indiceUltimoNumero];
+        } else {
+            return maior;
+        }
+    }
+
+    private static void s1Exercicio2() {
+        Scanner scanner = new Scanner(System.in);
+        int arraySize = scanner.nextInt();
+        int[] array = new int[arraySize];
+
+        int z = 0;
+        while (z < arraySize) {
+            int numero = scanner.nextInt();
+            array[z] = numero;
+            z++;
+        }
+
+        System.out.println(findMax(array, arraySize - 1));
+    }
+
+    private static void s1Exercicio3() {
+        //O(n)
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+
+        int s = 0;
+
+        for(int i = 1; i < n - 2; i++) {
+//            for(int j = i; j < n; j++) {
+//                s++;
+//            }
+
+            s = s + (n - i);
+        }
+
+        System.out.println(s);
+    }
 }
