@@ -46,9 +46,8 @@ public class Main {
 
     }
 
-    //Algoritmo Insertion Sort
-    public static void s1Exercicio1() {
-        // O(n²)
+    //Algoritmo Insertion Sort: O(n²)
+    public static void insertionSort() {
         Scanner scanner = new Scanner(System.in);
         int arraySize = scanner.nextInt();
         int[] array = new int[arraySize];
@@ -126,4 +125,45 @@ public class Main {
 
         System.out.println(s);
     }
+
+    //Busca sequencial: O(n)
+    public static int buscaSequencial(int x, int[] v) {
+        int j = 0;
+        int r = v.length - 1;
+
+        int resultado = 0;
+        while(j <= r && v[j] < x) {
+            if(j <= r && v[j] == x) {
+                j++;
+                resultado = j;
+            } else {
+                j++;
+                resultado = -1;
+            }
+        }
+        return resultado;
+    }
+
+    //Buscar binaria: O(lg n)
+    public static int buscaBinaria(int x, int[] v) {
+        int p = 0;
+        int r = v.length - 1;
+
+        while (p <= r) {
+            int m = (p + r)/2;
+
+            if(x == v[m]) {
+                return m;
+            }
+
+            if(x < v[m]) {
+                r = m - 1;
+            } else {
+                p = m + 1;
+            }
+        }
+        return -1;
+    }
+
+    //Selection sort: O(n²)
 }
